@@ -1,0 +1,17 @@
+1 = execute permissions
+2 = write permissions
+4 = read permissions
+
+	    read write execute
+owner	 x     x      x
+group    x     x      x
+public   x     x      x 
+
+0777
+
+	    read write execute
+owner	 x     x      0
+group    x     0      0
+public   x     0      0 
+
+0644

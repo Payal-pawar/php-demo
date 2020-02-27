@@ -1,0 +1,55 @@
+<?php
+$candidatelist=[
+   [
+    'id'=>'1',
+    'title'=>'mrs',
+    'surname'=>'Pawar',
+    'firstname'=>'payal',
+    'fatherhusbandname'=>'swapnil',
+    'mothersname'=>'ashaben',
+    'gender'=>'Female',
+    'dateofbirth'=>'22/10/1990',
+    'maritalstatus'=>'Married',
+    'category'=>'open'
+   ],
+   [
+    'id'=>'2',
+    'title'=>'mr',
+    'surname'=>'Pawar',
+    'firstname'=>'swapnil',
+    'fatherhusbandname'=>'vinodkumar',
+    'mothersname'=>'sunandaben',
+    'gender'=>'male',
+    'dateofbirth'=>'29/11/1987',
+    'maritalstatus'=>'Married',
+    'category'=>'open'
+   ],
+   [
+    'id'=>'3',
+    'title'=>'mrs',
+    'surname'=>'Pawar',
+    'firstname'=>'shwetal',
+    'fatherhusbandname'=>'abhinav',
+    'mothersname'=>'sunandaben',
+    'gender'=>'Female',
+    'dateofbirth'=>'27/09/1991',
+    'maritalstatus'=>'Married',
+    'category'=>'open'
+   ],
+   [
+      'id'=>'4',
+      'title'=>'mrs',
+      'surname'=>'Chandlekar',
+      'firstname'=>'Mitali',
+      'fatherhusbandname'=>'Vikas',
+      'mothersname'=>'ashaben',
+      'gender'=>'Female',
+      'dateofbirth'=>'04/07/1992',
+      'maritalstatus'=>'Married',
+      'category'=>'open'
+     ],
+     
+   ];
+
+echo json_encode($candidatelist,JSON_PRETTY_PRINT);
+?>
