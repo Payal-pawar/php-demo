@@ -4,7 +4,7 @@ $data = [1,2,3];
 var_dump($data);
 echo "<br>";
 
-$data = array(1,"sumit",11);
+$data = array(1,"payal",11);
 var_dump($data);
 echo "<br>";
 
