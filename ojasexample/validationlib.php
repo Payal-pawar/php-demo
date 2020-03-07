@@ -1,24 +1,32 @@
 <?php
 $rules = [
-        'title'=>['type'=>'string','list'=>['Mr','Mrs']],
+        'title'=>['type'=>'string','list'=>['Mr','Mrs','Ms','Dr']],
         'fname'=>['type'=>'string'],
         'lname'=>['type'=>'string'],
         'fhname'=>['type'=>'string'],
         'mname'=>['type'=>'string'],
+        'dob'=>['type'=>'date'],
         'gender'=>['type'=>'string','list'=>['Male','Female']],
-        'maritalstatus'=>['type'=>'string','list'=>['Married','Unmarried']],
+        'marital_status'=>['type'=>'string','list'=>['Married','Unmarried']],
         'category'=>['type'=>'string','list'=>['open','handicap','sebc','sc','st']]
-    ];
-// $data = [
-//     'title'=>$_POST['title'],
-//     'fname'=>$_POST['fname'],
-//     'lname'=>$_POST['lname'],
-//     'fhname'=>$_POST['fhname'],
-//     'mname'=>$_POST['mname'],
-//     'gender'=>$_POST['gender'],
-//     'maritalstatus'=>$_POST['maritalstatus'],
-//     'category'=>$_POST['category']
-// ];
+];
+        [
+            'pre_address'=>['type'=>'string'],
+            'state'=>['type'=>'string','list'=>['Gujarat','Delhi','Assam','bihar','goa','daman & diu','haryana','kerala','jharkhand','orissa']],
+            'district'=>['type'=>'string','list'=>['Ahmedabad','Bharuch','vadodara','anand','surat','rajkot','bhavnagar','dahod']],
+            'taluka'=>['type'=>'string'],
+            'pincode'=>['type'=>'int'],
+            'mob'=>['type'=>'int'],
+            'email'=>['type'=>'string']
+        ];
+
+function dateChecker($data){
+    if(!empty($data)){
+        $date = date('Y-m-d',strtotime($data));
+        return $date;
+    }
+    return false;
+}
 
 function string_checker($data){
     $data = filter_var($data, FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
@@ -42,7 +50,8 @@ function list_checker($data,$list){
 }
 function int_checker($data)
 {
-    $data = filter_var($_POST['pass'],FILTER_VALIDATE_INT);
+    $data = filter_var($_POST['pincode'],FILTER_VALIDATE_INT);
+    $data = filter_var($_POST['mob'],FILTER_VALIDATE_INT);
     if(empty($data)){
         return false;
     }    
@@ -59,14 +68,14 @@ return $data;
 }
 function email_checker($data)
 {
-    $data = filter_var($_POST['user'],FILTER_SANITIZE_EMAIL);
-    $data = filter_var($_POST['user'],FILTER_VALIDATE_EMAIL);
+    $data = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
+    $data = filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);
     if(empty($data))
     {
         return false;
     }
-    
-}
+    return $data;
+}   
 
 function filterprocess($data,$type,$list = ""){
     switch ($type) {
@@ -79,6 +88,13 @@ function filterprocess($data,$type,$list = ""){
             var_dump($list);
             $ans=list_checker($data,$list);
             break;
+        case 'date':
+            $ans = dateChecker($data);
+            var_dump($ans);
+            break;
+        case 'email':
+            $ans=email_checker($data);
+            var_dump($data);
         default:
             break;
     }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include('dbconfig.php');
 include('validationlib.php');
 
 try {
@@ -11,13 +11,35 @@ try {
         $data['fhname']=$_POST['fhname'];
         $data['mname']=$_POST['mname'];
         $data['gender']=$_POST['gender'];
-        // $data['date']=$_POST['date'];
-        $data['maritalstatus']=$_POST['maritalstatus'];
+        $data['dob']=$_POST['dob'];
+        $data['marital_status']=$_POST['marital_status'];
         $data['category']=$_POST['category'];
-        var_dump(validation($data));
+        $data['pre_address']=$_POST['pre_address'];
+        $data['state']=$_POST['state'];
+        $data['district']=$_POST['district'];
+        $data['taluka']=$_POST['taluka'];
+        $data['pincode']=$_POST['pincode'];
+        $data['mob']=$_POST['mob'];
+        $data['email']=$_POST['email'];
+        $data['nationality']=$_POST['nationality'];
+        if(validation($data)){
+            $ans = insertPersonalDetail($data) > 0;
+            $ans=insertAddressDetail($data)>0;
+            if($ans){
+                $_SESSION['success'] = 'Data Inserted SuccessFully.';
+                header('location:index.php');
+            }else{
+                $_SESSION['error'] = 'Data Not Inserted SuccessFully.';
+                header('location:index.php');
+            }
+        }else{
+            $_SESSION['error'] = 'Data is invalid.';
+            header('location:index.php');
+        }
     } 
 } catch (Exception $e) {
     $_SESSION['error']=$e->getMessage();
-    header('location:onlineform.php');
+    header('location:index.php');
+
 }
 ?>
