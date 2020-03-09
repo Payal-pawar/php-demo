@@ -4,7 +4,7 @@ include('dbconfig.php');
 switch ($_GET['action']) {
     case 'editP':
         $_POST = json_decode(file_get_contents('php://input'));
-        $data = selectSingleDetail($_POST['id']);
+        $data = selectSingleDetail($_POST->id);
         echo json_encode($data);
         break;
     case 'getData':

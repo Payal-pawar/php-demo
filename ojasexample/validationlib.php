@@ -10,15 +10,15 @@ $rules = [
         'marital_status'=>['type'=>'string','list'=>['Married','Unmarried']],
         'category'=>['type'=>'string','list'=>['open','handicap','sebc','sc','st']]
 ];
-        [
-            'pre_address'=>['type'=>'string'],
-            'state'=>['type'=>'string','list'=>['Gujarat','Delhi','Assam','bihar','goa','daman & diu','haryana','kerala','jharkhand','orissa']],
-            'district'=>['type'=>'string','list'=>['Ahmedabad','Bharuch','vadodara','anand','surat','rajkot','bhavnagar','dahod']],
-            'taluka'=>['type'=>'string'],
-            'pincode'=>['type'=>'int'],
-            'mob'=>['type'=>'int'],
-            'email'=>['type'=>'string']
-        ];
+        // [
+        //     'pre_address'=>['type'=>'string'],
+        //     'state'=>['type'=>'string','list'=>['Gujarat','Delhi','Assam','bihar','goa','daman & diu','haryana','kerala','jharkhand','orissa']],
+        //     'district'=>['type'=>'string','list'=>['Ahmedabad','Bharuch','vadodara','anand','surat','rajkot','bhavnagar','dahod']],
+        //     'taluka'=>['type'=>'string'],
+        //     'pincode'=>['type'=>'int'],
+        //     'mob'=>['type'=>'int'],
+        //     'email'=>['type'=>'string']
+        // ];
 
 function dateChecker($data){
     if(!empty($data)){

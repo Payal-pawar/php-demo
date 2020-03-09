@@ -35,13 +35,31 @@ const buttonGroup = function(id) {
 const editAction = function() {
     event.preventDefault();
 
-    var id = parseInt($(this).attr('data-id'));
+    var dataid = parseInt($(this).attr('data-id'));
     var modalId = $(this).attr('data-target');
-    $(modalId).modal('show');
     ajaxService('ojas.api.php?action=editP', function(result) {
-        console.log(result);
-    }, { id: id });
-    console.log(id, modalId);
+        result = JSON.parse(result);
+        $('#data-id').val(result.id);
+        $('#data-title').val(result.title);
+        $('#data-fname').val(result.fname);
+        $('#data-lname').val(result.lname);
+        $('#data-fhname').val(result.fhname);
+        $('#data-mname').val(result.mname);
+        $('input[name="gender"]').each(function(i, el) {
+            if (el.value === result.gender) {
+                el.checked = true;
+            }
+        });
+
+        $('input[name="marital_status"]').each(function(i, el) {
+            if (el.value === result.marital_status) {
+                el.checked = true;
+            }
+        });
+        $('#data-date').val(result.dob);
+        $('#data-category').val(result.category);
+    }, JSON.stringify({ id: dataid }));
+    $(modalId).modal('show');
 };
 
 
@@ -94,7 +112,6 @@ $(document).ready(function() {
             $("#perm-address").val($("#pres-address").val());
             $("#perm-state").val($("#pres-state").val());
             $("#perm-dist").val($("#pres-dist").val());
-            $("#perm-tal").val($("#pres-tal").val());
             $("#perm-pincode").val($("#pres-pincode").val());
         } else {
             $("#pres-address").val('');
@@ -105,7 +122,7 @@ $(document).ready(function() {
         }
     });
     ajaxService('ojas.api.php?action=getData', function(result) {
-        console.log(result);
+        //console.log(result);
         result = JSON.parse(result);
         if ($('#datatable')) {
             $('#datatable').html('');

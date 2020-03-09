@@ -42,6 +42,7 @@
                     </button>
                 </div>
                 <form action="validate.php" method="post">
+                    <input type="hidden" name="id" id="data-id">
                     <div class="modal-body">
                         <div class="card">
                             <div class="card-header bg-primary">
@@ -53,7 +54,7 @@
                                         <div class="input-group">
                                             <label><strong>Title:</strong></label>
                                             <div class="input-group-prepend">
-                                                <select class="custom-select" id="inputGroupSelect01" name="title">
+                                                <select class="custom-select" id="data-title" name="title">
                                           <option value="Mr">Mr.</option>
                                           <option value="Mrs">Mrs.</option>
                                         </select>
@@ -63,20 +64,20 @@
                                     <div class="col-md-5">
                                         <label><strong>First and last name</strong></label>
                                         <div class="input-group">
-                                            <input type="text" name="fname" aria-label="First name" class="form-control" placeholder="First Name">
-                                            <input type="text" name="lname" aria-label="Last name" class="form-control" placeholder="Last Name">
+                                            <input type="text" id="data-fname" name="fname" aria-label="First name" class="form-control" placeholder="First Name">
+                                            <input type="text" id="data-lname" name="lname" aria-label="Last name" class="form-control" placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <label><strong>Father/Husband Name:</strong></label>
                                         <div class="form-group">
-                                            <input type="text" name="fhname" aria-label="Last name" class="form-control" placeholder="Father/Husband'name">
+                                            <input type="text" name="fhname" id="data-fhname" aria-label="Last name" class="form-control" placeholder="Father/Husband'name">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <label><strong>Mothers's Name:</strong></label>
                                         <div class="form-group">
-                                            <input type="text" name="mname" aria-label="Last name" class="form-control" placeholder="Mother's Name">
+                                            <input type="text" name="mname" id="data-mname" aria-label="Last name" class="form-control" placeholder="Mother's Name">
                                         </div>
                                     </div>
                                 </div>
@@ -86,11 +87,11 @@
                                         <div></div>
                                         <div class="form-check-inline">
                                             <div class="custom-control custom-radio mr-2">
-                                                <input type="radio" id="customRadio1" name="gender" class="custom-control-input" value="Male">
+                                                <input type="radio" name="gender" class="custom-control-input" value="Male">
                                                 <label class="custom-control-label" for="customRadio1">Male</label>
                                             </div>
                                             <div class="custom-control custom-radio mr-2">
-                                                <input type="radio" id="customRadio2" name="gender" class="custom-control-input" value="Female">
+                                                <input type="radio" name="gender" class="custom-control-input" value="Female">
                                                 <label class="custom-control-label" for="customRadio2">Female</label>
                                             </div>
                                         </div>
@@ -98,7 +99,7 @@
                                     <div class="col-md-3">
                                         <label><strong>Date Of Birth:</strong></label>
                                         <div class="form-group">
-                                            <input type="date" name="date" id="" class="form-control">
+                                            <input type="date" id="data-date" name="dob" id="" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -106,11 +107,11 @@
                                         <div></div>
                                         <div class="form-check-inline">
                                             <div class="custom-control custom-radio mr-2">
-                                                <input type="radio" id="customRadio3" name="maritalstatus" class="custom-control-input" value="Married">
+                                                <input type="radio" name="marital_status" class="custom-control-input" value="Married">
                                                 <label class="custom-control-label" for="customRadio3">Married</label>
                                             </div>
                                             <div class="custom-control custom-radio mr-2">
-                                                <input type="radio" id="customRadio4" name="maritalstatus" class="custom-control-input" value="Unmarried">
+                                                <input type="radio" name="marital_status" class="custom-control-input" value="Unmarried">
                                                 <label class="custom-control-label" for="customRadio4">Unmarried</label>
                                             </div>
                                         </div>
@@ -118,7 +119,7 @@
                                     <div class="col-md-3">
                                         <label><strong>Category:</strong></label>
                                         <div class="form-group">
-                                            <select class="custom-select" id="inputGroupSelect01" name="category">
+                                            <select class="custom-select" id="data-category" name="category">
                                             <option value="open">General</option>
                                             <option value="handicap">General(EWS)</option>
                                             <option value="sebc">SEBC</option>
@@ -132,7 +133,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Save changes">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>

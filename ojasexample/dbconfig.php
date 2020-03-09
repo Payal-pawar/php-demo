@@ -134,3 +134,17 @@ function selectSingleDetail($id = 0){
     }
     return false;
 }
+
+
+function updatePersonalDetail($data,$id){
+    try{
+        $con = connection();
+        $sql = "UPDATE `personal_detail` SET `title` = '".$data['title']."',`fname` = '".$data['fname']."',`lname` = '".$data['lname']."',`fhname` = '".$data['fhname']."',`mname` = '".$data['mname']."',`gender` = '".$data['gender']."',`dob` = '".$data['dob']."',`marital_status` = '".$data['marital_status']."',`category` = '".$data['category']."'WHERE id = $id";
+        $result = mysqli_query($con,$sql);
+
+        return $result;
+    }catch(Exception $e){
+
+    }
+    return false;
+}
